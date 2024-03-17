@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Dojo Survey</title>
+</head>
+<body>
+    
+    <div class="formDiv">
+
+        <form action='/users' method='post'>
+            {% csrf_token %}
+            <div class="inputs">
+                <label>Your Name: </label>
+                <input type='text' name='name'>
+            </div>
+            <div class="inputs">
+                <label>Dojo Location: </label>
+                <select name="location">
+                    <option value="California">California</option>
+                    <option value="New Jersey">New Jersey</option>
+                    <option value="Ohio">Ohio</option>
+                    <option value="Online">Online</option>
+                </select>
+            </div>
+            <div class="inputs">
+                <label>Favorite Language: </label>
+                <select name="language">
+                    <option value="Python">Python</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="Java">Java</option>
+                </select>
+            </div>
+
+            <div class="inputs">
+                <label>Comment: (optional) </label>
+                <textarea id="comment" name="comment" rows="4" cols="50">
+                </textarea>
+            </div>
+            <button type='submit'>Create User</button>
+        </form>
+
+    </div>
+</body>
+</html>
